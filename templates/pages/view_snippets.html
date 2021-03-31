@@ -32,6 +32,10 @@
                 <td> {{ snippet.lang }} </td>
                 <td> {{ snippet.code }} </td>
                 <td> {{ snippet.creation_date|date:"d.m.Y" }} </td>
+                <td>
+                    <a href="{% url 'snippets_edit' snippet.id %}">Edit<i style="color:black" class="fas fa-edit"></i></a>
+                    <a href="{% url 'snippets_edit' snippet.id %}">Delete<i style="color:red" class="fas fa-ban"></i></a>
+                </td>
             </tr>
         {% endfor %}
     </tbody>

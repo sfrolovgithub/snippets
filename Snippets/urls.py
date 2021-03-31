@@ -21,7 +21,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index_page, name='home'),
     path('snippets/add', views.add_snippet_page, name='snippets_add'),
+    #path('snippets/add', views.add_snippet_page_auto_form, name='snippets_add'),
     path('snippets/list', views.snippets_page, name='snippets_list'),
     path('snippets/create', views.snippets_create, name='snippets_create'),
+    path('snippets/edit/<int:id>', views.snippets_edit, name='snippets_edit'),
+    #path('snippets/create', views.snippets_create_auto_form, name='snippets_create'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
