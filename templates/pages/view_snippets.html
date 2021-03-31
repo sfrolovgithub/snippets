@@ -14,4 +14,26 @@
         Список сниппетов:
     </div>
 </div>
+<table class="table">
+    <thead>
+        <tr>
+            <td scope="col">Id</td>
+            <td scope="col">Name</td>
+            <td scope="col">Lang</td>
+            <td scope="col">Code</td>
+            <td scope="col">Creation date</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for snippet in snippets %}
+            <tr>
+                <td scope="row"> {{ snippet.id }} </td>
+                <td> {{ snippet.name }} </td>
+                <td> {{ snippet.lang }} </td>
+                <td> {{ snippet.code }} </td>
+                <td> {{ snippet.creation_date|date:"d.m.Y" }} </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
