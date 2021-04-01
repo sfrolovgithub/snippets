@@ -39,4 +39,38 @@
                 </form>
             </div>
         </div>
+
+<div class="row">
+    <h3>Comments:</h3>
+</div>
+
+<div class="row">
+    <div class="col">
+        {% for comment in comments %}
+            <div class="form-group row">{{ comment.text }}</div>
+        {% endfor %}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {% if request.user.is_authenticated %}
+        <form action="{% url 'snippets_comment_create' %}" method="post">
+            {% csrf_token %}
+              <div class="form-group row">
+                    <div class="col">
+                        <input name="snippet_id" type="hidden" value="{{ snippet.id }}">
+                        <textarea name="snippet_comment" cols="96" rows="10" placeholder="Комментарий снипета"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8">
+                        <input type="submit" class="btn btn-primary btn-block" value="Добавить">
+                    </div>
+                </div>
+        </form>
+        {% endif %}
+    </div>
+</div>
+
+
 {% endblock %}
